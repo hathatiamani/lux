@@ -1,14 +1,15 @@
 "use client"
 
-import { useState } from "react"
+import { use, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import Navigation from "@/components/navigation"
 import OrderForm from "@/components/order-form"
 import { products } from "@/lib/products"
 
-export default function ProductPage({ params }: { params: { id: string } }) {
-  const product = products.find((p) => p.id === params.id)
+export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params)
+  const product = products.find((p) => p.id === id)
   const [showForm, setShowForm] = useState(false)
 
   if (!product) {
