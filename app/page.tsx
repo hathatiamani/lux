@@ -363,7 +363,7 @@ export default function Home() {
         }
 
         .row:nth-child(2) span {
-          font-size: 9vw;
+          font-size: 5.5vw;
         }
 
         .featured-section {
